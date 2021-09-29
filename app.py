@@ -15,7 +15,7 @@ toReturn = ['']
 severityReturn = ['']
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('', methods=['GET', 'POST'])
 def home_page():
 
     return render_template('index.html', data="toReturn", severe=severityReturn)
