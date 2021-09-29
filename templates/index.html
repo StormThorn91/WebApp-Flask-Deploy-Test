@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/styles.css">
+    <title>Corn Disease Classifier</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Corn Diseases Identification and Severity Detection System</h1>
+    </div>
+
+    <div class="container">
+        <h3>Classification</h3>
+        <div class="data-container">
+            {% if data[0] == 't' or data[0] == '' %}
+            <div class="img-container">
+                <p><img id="output" src="./static/images/upload-img.jpg" max-width="15vw" style=" margin: 0;"></p>
+            </div>
+            
+            <div class="results-container">
+                <h4>RESULT:</h4>
+
+            </div>
+            
+            {% else %}
+            <div class="img-container">
+                <p><img id="output" src="{{ data[0] }}" width="50%"></p>
+            </div>
+            
+            <div class="results-container">
+                <h4>RESULT:</h4>
+                <p>{{data[1]}}</p>
+
+            </div>
+    
+            {% endif %}
+        </div>
+        
+        <div class="form-container">
+            <form action="classify" method="post" id="form" enctype="multipart/form-data">
+                <input type="file" name="imgFile" accept="image/*" onchange="form.submit()" id="imgFile" hidden>
+                <label for="imgFile"><p>UPLOAD</p></label>
+            </form>
+        </div>
+        
+    
+    </div>
+
+    <div class="container">
+        <h3>Severity</h3>
+        <div class="data-container">
+            {% if severe[0] == 't' or severe[0] == '' %}
+            <div class="img-container">
+                <p><img id="output" src="./static/images/upload-img.jpg" max-width="15vw" style=" margin: 0;"></p>
+            </div>
+            
+            <div class="results-container">
+                <h4>RESULT:</h4>
+
+            </div>
+            
+            {% else %}
+            <div class="img-container">
+                <p><img id="output" src="{{ severe[0] }}" width="50%"></p>
+            </div>
+            
+            <div class="results-container">
+                <h4>RESULT:</h4>
+                <p>Percent of infected part is {{severe[1]}}%</p>
+                <p>{{severe[2]}}</p>
+                <p>{{severe[3]}}</p>
+
+            </div>
+    
+            {% endif %}
+        </div>
+        
+        <div class="form-container">
+            <form action="severity" method="post" id="form" enctype="multipart/form-data">
+                <input type="file" name="severityFile" accept="image/*" onchange="form.submit()" id="severityFile" hidden>
+                <label for="severityFile"><p>UPLOAD</p></label>
+            </form>
+        </div>
+        
+    
+    </div>
+
+</body>
+
+</html>
