@@ -1,5 +1,5 @@
 numpy==1.19.5
-tensorflow==2.6.0
+tensorflow-cpu==2.6.0
 scikit_image==0.18.3
 Flask==2.0.1
 opencv_python==4.5.3.56
